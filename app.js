@@ -48,6 +48,15 @@ app.get('/random-beer', (req, res) => {
   })
   .catch(error => console.log(error));
 });
+app.get('/beers/:id', (req, res) => {
+  let beerId = req.params.id;
+  punkAPI
+  .getBeer(beerId)
+  .then(beer => {
+    res.render('partials/beerpartials', beer[0]);
+  });
+});
+
   
      
 
